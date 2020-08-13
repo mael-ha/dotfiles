@@ -41,3 +41,13 @@ pyenv activate lewagon 2>/dev/null && echo "🐍 Loading 'lewagon' virtualenv"
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export BUNDLER_EDITOR="'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl' -a"
+
+function gac() {
+    git add .
+    git commit -a -m "${1:-\"update\"}"
+}
+
+function gacp() {
+    gac $1
+    git push "${3:-origin}" "${2:-master}"
+}
